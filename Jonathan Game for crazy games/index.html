@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jonathan Game</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Linked to external CSS -->
+
+<link rel="icon" type="image/png" href="icon.png">
+
+
+<!-- backround -->
+ <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0; /* removes default white edges */
+      height: 100vh; /* makes sure it fills the full screen */
+      background: url("backround.jpg") no-repeat center center fixed;
+      background-size: cover; /* stretch to cover screen */
+    }
+  </style>
+  </head>
+</html>
+
+<!-- potato button -->
+  <img src="chickenStrip.png" alt="Jonathan" id="jonathanButton" class="potato-img">
+
+<style>
+.potato-img {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.potato-img:active {
+  transform: scale(0.9);
+}
+</style>
+<!-- space bar click -->
+<script>
+const button = document.getElementById("jonathanButton");
+
+// Handle mouse click
+button.addEventListener("click", () => {
+  console.log("Clicked!"); 
+  // You can replace this with your game logic
+});
+
+// Handle spacebar press
+document.addEventListener("keyup", (event) => {
+  if (event.code === "Space") {
+    event.preventDefault(); // stops page from scrolling
+    button.click(); // trigger the click event
+    button.classList.add("active-effect");
+
+    // remove effect after short delay
+    setTimeout(() => {
+      button.classList.remove("active-effect");
+    }, 100);
+  }
+});
+</script>
+
+  <p id="score">Score: 0</p>
+  <p><span id="potatoScore">0</span></p>
+  <p><span id="rebirthNum">0</span></p></p>
+
+  <!-- Shop Button -->
+  <button id="shopButton">Shop</button>
+
+  <!-- Shop Panel (Initially Hidden) -->
+  <div id="shopPanel" class="hidden">
+    <h2>Shop</h2>
+    <div id="autoClickerUpgrade">
+      <p>Auto-Clicker Level: <span id="autoClickerLevel">0</span></p>
+      <p>Cost: <span id="autoClickerCost">100</span> Clicks</p>
+      <button id="buyAutoClicker">Buy Auto-Clicker</button>
+      <p>Jonathan's Potato Clicker(+10 auto clicker levels)</p>
+      <p>Cost: <span id="potatoAutoClickerCost">3</span> Potatoes</p>
+      <button id="buyPotatoAutoClicker">Buy Jonathan's Potato Clicker</button>
+    </div>
+
+    <button id="closeShopButton">Close Shop</button>
+  </div>
+  
+  <!-- Reset button -->
+  <button id = "rebirthButton">REBIRTH</button>
+
+  <script src="script.js"></script> <!-- Linked to external JS -->
+</body>
+</html>
